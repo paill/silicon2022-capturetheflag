@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rootthebox
+  namespace: rootthebox
+spec:  
+  replicas: 1
+  selector:
+      matchLabels:
+        app: rootthebox
+        tier: frontend
+  template:
+    metadata:
+      labels:
+        app: rootthebox
+        tier: frontend
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: rootthebox
+        image: registry/rootthebox:latest
+        env:
+        - name: MEMCACHED_SERVERS
+          value: "10.0.30.45"
+        ports:
+        - containerPort: 8888
+          name: rootthebox
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: sqllite-persistent-storage
+          mountPath: /opt/rtb
+      volumes:
+      - name: sqllite-persistent-storage
+        persistentVolumeClaim:
+          claimName: sqllite-pv-claim

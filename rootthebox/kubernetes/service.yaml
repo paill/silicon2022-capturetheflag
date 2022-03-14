@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rootthebox
+  namespace: rootthebox
+  labels:
+    app: rootthebox
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8888
+  selector:
+    app: rootthebox
+    tier: frontend

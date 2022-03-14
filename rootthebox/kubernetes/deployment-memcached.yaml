@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memcached
+  namespace: rootthebox
+spec:  
+  replicas: 1
+  selector:
+      matchLabels:
+        app: rootthebox
+        tier: app-tier
+  template:
+    metadata:
+      labels:
+        app: rootthebox
+        tier: app-tier
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: memcached
+        image: bitnami/memcached:latest
+        ports:
+        - containerPort: 11211
+          name: memcached
+        imagePullPolicy: Always
