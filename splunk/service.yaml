@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: splunk-service
+  namespace: splunk
+  labels:
+    app: splunk
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8000
+  selector:
+    app: splunk
