@@ -20,7 +20,7 @@ export const policies =
       },
       frameguard: false
     };
-    if (!allowIframe) args.frameguard = { action: 'sameorigin' };
+    if (!allowIframe) args.frameguard = { action: '' };
 
     helmet(args)(req, res, next);
   };

@@ -9,9 +9,10 @@ Description=Wetty Web Terminal
 After=network.target
 
 [Service]
+User=wetty
 Type=simple
-WorkingDirectory=$HOME/.config/yarn/global/node_modules/wetty/
-ExecStart=/usr/bin/node . -p 3000 --host 127.0.0.1
+WorkingDirectory=/data/silicon2022-ctf/wetty/node_modules/wetty/
+ExecStart=/usr/bin/node . -p 3000 --host 127.0.0.1 --allow-iframe
 TimeoutStopSec=20
 KillMode=mixed
 Restart=always

@@ -1,13 +1,13 @@
 import type SocketIO from 'socket.io';
 import isUndefined from 'lodash/isUndefined.js';
 import pty from 'node-pty';
+import crypto from 'crypto';
+import url from 'url';
 import { logger as getLogger } from '../shared/logger.js';
 import { xterm } from './shared/xterm.js';
 // import { envVersion } from './spawn/env.js';
 // CTF - Import Crypto to generate random pid
-import crypto from 'crypto';
 // CTF - Import URL to get challenge name from request url
-import url from 'url';
 
 export async function spawn(
   socket: SocketIO.Socket,
@@ -17,14 +17,14 @@ export async function spawn(
   // CTF - Get challenge name from URL
   const challengeName = url.parse(socket.request.headers.referer, true).query.challenge as string;
   // CTF - Generate random ID
-  var cid = crypto.randomBytes(20).toString('hex');
+  const cid = crypto.randomBytes(20).toString('hex');
   const logger = getLogger();
   // const version = await envVersion();
   // const cmd = version >= 9 ? ['-S', ...args] : args;
-  //logger.debug('Spawning PTY', { cmd });
+  // logger.debug('Spawning PTY', { cmd });
   // const term = pty.spawn('/usr/bin/env', cmd, xterm);
   // CTF - Generate docker terminal command
-  const term = pty.spawn('/usr/bin/docker', ['run', '-it', '--rm', '--name', cid, '--pull=never', '--network=no-internet', 'registry/' + challengeName], xterm)
+  const term = pty.spawn('/usr/bin/docker', ['run', '-it', '--rm', '--name', cid, '--pull=never', '--network=no-internet', `registry/${  challengeName}`], xterm)
   const { pid } = term;
   // const address = args[0] === 'ssh' ? args[1] : 'localhost';
   logger.info('Process Started on behalf of user', { pid });
@@ -38,7 +38,7 @@ export async function spawn(
       .removeAllListeners('input');
       // CTF - Kill container on logout
       logger.info('Killing container')
-      pty.spawn('/usr/bin/docker', ['stop', cid], {});
+      pty.spawn('/usr/bin/docker', ['kill', cid], {});
   });
   term.on('data', (data: string) => {
     socket.emit('data', data);
@@ -55,6 +55,6 @@ export async function spawn(
       logger.info('Process exited', { code: 0, pid });
       // CTF - Kill container on disconnect
       logger.info('Killing container');
-      pty.spawn('/usr/bin/docker', ['stop', cid], {});
+      pty.spawn('/usr/bin/docker', ['kill', cid], {});
     });
 }
