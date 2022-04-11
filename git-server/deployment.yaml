@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gogs
+  namespace: gogs
+spec:  
+  replicas: 1
+  selector:
+      matchLabels:
+        app: gogs
+  template:
+    metadata:
+      labels:
+        app: gogs
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: gogs
+        image: registry/gogs/gogs:latest
+        env:
+        - name: SOCAT_LINK
+          value: "false"
+        ports:
+        - containerPort: 22
+          name: ssh
+        - containerPort: 3000
+          name: http
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: gogs-persistent-storage
+          mountPath: /data
+      volumes:
+      - name: gogs-persistent-storage
+        persistentVolumeClaim:
+          claimName: gogs-pv-claim
