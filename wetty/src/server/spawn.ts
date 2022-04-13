@@ -15,7 +15,7 @@ export async function spawn(
 ): Promise<void> {
   
   // CTF - Get challenge name from URL
-  const challengeName = url.parse(socket.request.headers.referer, true).query.challenge as string;
+  const challengeNameHash = crypto.createHash('sha1').update(url.parse(socket.request.headers.referer, true).query.challenge as string).digest('hex');
   // CTF - Generate random ID
   const cid = crypto.randomBytes(20).toString('hex');
   const logger = getLogger();
@@ -24,7 +24,7 @@ export async function spawn(
   // logger.debug('Spawning PTY', { cmd });
   // const term = pty.spawn('/usr/bin/env', cmd, xterm);
   // CTF - Generate docker terminal command
-  const term = pty.spawn('/usr/bin/docker', ['run', '-it', '--rm', '--name', cid, '--pull=never', '--network=no-internet', `registry/${  challengeName}`], xterm)
+  const term = pty.spawn('/usr/bin/docker', ['run', '-it', '--rm', '--name', cid, '--pull=never', '--network=no-internet', `${challengeNameHash}`], xterm)
   const { pid } = term;
   // const address = args[0] === 'ssh' ? args[1] : 'localhost';
   logger.info('Process Started on behalf of user', { pid });
