@@ -18,8 +18,6 @@ def ssrf():
 
     if form.validate_on_submit():      
         url = form.url.data
-        parsed_url = urllib.parse.urlparse(url)
-        print(parsed_url)
 
         try:
             response = urllib.request.urlopen(url)
