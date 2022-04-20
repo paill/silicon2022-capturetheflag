@@ -5,7 +5,6 @@ import os
 SECRET_KEY = os.urandom(32)
 
 
-
 def create_app():
     """Create Flask application."""
     app = Flask(__name__, instance_relative_config=False)
@@ -13,12 +12,12 @@ def create_app():
     app.config['SECRET_KEY'] = SECRET_KEY
     with app.app_context():
         # Import parts of our application
-        from .cookie import cookie
+        from .ssrf import ssrf
         from .nosqli import nosqli
 
 
         # Register Blueprints
-        app.register_blueprint(cookie.cookie_bp)
+        app.register_blueprint(ssrf.ssrf_bp)
         app.register_blueprint(nosqli.nosqli_bp)
 
         return app
