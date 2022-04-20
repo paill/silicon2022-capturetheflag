@@ -3,3 +3,4 @@ flask-bootstrap
 flask_wtf
 wtforms
 Flask-PyMongo
+waitress
