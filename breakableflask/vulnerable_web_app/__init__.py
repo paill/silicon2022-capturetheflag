@@ -2,7 +2,10 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 import os
+import importlib
+
 SECRET_KEY = os.urandom(32)
+
 
 
 def create_app():
@@ -11,13 +14,11 @@ def create_app():
     Bootstrap(app)
     app.config['SECRET_KEY'] = SECRET_KEY
     with app.app_context():
-        # Import parts of our application
-        from .ssrf import ssrf
-        from .nosqli import nosqli
+        blueprints = os.environ["BLUEPRINTS"].split(',')
 
-
-        # Register Blueprints
-        app.register_blueprint(ssrf.ssrf_bp)
-        app.register_blueprint(nosqli.nosqli_bp)
+        for blueprint_string in blueprints:
+            blueprint_module = importlib.import_module(f".{blueprint_string}.{blueprint_string}", package=__name__)
+            blueprint_object = getattr(blueprint_module, f"{blueprint_string}_bp")
+            app.register_blueprint(blueprint_object)
 
         return app

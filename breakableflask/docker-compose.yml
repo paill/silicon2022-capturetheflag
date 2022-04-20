@@ -6,6 +6,8 @@ services:
         https_proxy: $HTTPS_PROXY
     ports:
       - "5000:5000"
+    environment:
+      BLUEPRINTS: $BLUEPRINTS
     networks:
       silicon_ctf_web:
         ipv4_address: 172.168.24.2

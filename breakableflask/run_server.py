@@ -1,8 +1,9 @@
 from vulnerable_web_app import create_app
 from waitress import serve
+from werkzeug.exceptions import HTTPException
 
 import logging
-from flask import request
+from flask import render_template, request
 import time
 import traceback
 
@@ -22,6 +23,8 @@ def exceptions(e):
     tb = traceback.format_exc()
     timestamp = time.strftime('[%Y-%b-%d %H:%M]')
     logger.error('%s %s %s %s %s 5xx INTERNAL SERVER ERROR\n%s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, tb)
-    return e.status_code
+    if isinstance(e, HTTPException):
+        return e
+    return "Bad request", 500
 
 serve(app, host="0.0.0.0", port=5000)
