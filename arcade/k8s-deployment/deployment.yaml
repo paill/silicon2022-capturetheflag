@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arcade
+  namespace: arcade
+spec:  
+  replicas: 1
+  selector:
+      matchLabels:
+        app: arcade
+  template:
+    metadata:
+      labels:
+        app: arcade
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: pacman
+        image: registry/arcade/pacman:latest
+        env:
+        - name: FLAG
+          value: "SILICON{W4k4_w4K4_g0Tt4_34t_3M_4L1}"
+        - name: HOSTING_PATH
+          value: "."
+        ports:
+        - containerPort: 8080
+          name: http
+        imagePullPolicy: Always
