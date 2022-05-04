@@ -1,0 +1,27 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{%- extends "bootstrap/base.html" %}
+
+
+{% import "bootstrap/utils.html" as utils %}
+
+
+{% block content %}
+   <div class="container">
+   
+      <div class="jumbotron">
+        <h1>Submit a URL to GET</h1>
+      </div>
+      {%- with messages = get_flashed_messages(with_categories=True) %}
+      {%- if messages %}
+        <div class="row">
+          <div class="col-md-12">
+            {{utils.flashed_messages(messages)}}
+          </div>
+        </div>
+      {%- endif %}
+      {%- endwith %}
+   <div class="col-md-12">
+       {{wtf.quick_form(form, novalidate=True)}}
+   </div>
+{%- endblock %}

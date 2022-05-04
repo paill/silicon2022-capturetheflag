@@ -1,0 +1,49 @@
+services:
+  breakableflask:
+    build: 
+      context: .
+      args:
+        https_proxy: $HTTPS_PROXY
+    ports:
+      - "5000:5000"
+    environment:
+      BLUEPRINTS: $BLUEPRINTS
+    networks:
+      silicon_ctf_web:
+        ipv4_address: 172.168.24.2
+  mongodb:
+    build:
+      context: mongodb/
+    networks:
+      silicon_ctf_web:
+        ipv4_address: 172.168.24.3
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $MONGO_INITDB_ROOT_USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
+      MONGO_FLASK_DATABASE: $MONGO_FLASK_DATABASE
+      MONGO_FLASK_USER_NAME: $MONGO_FLASK_USER_NAME
+      MONGO_FLASK_USER_PASSWORD: $MONGO_FLASK_USER_PASSWORD
+  postfix:
+    build:
+      context: postfix/
+      args:
+        https_proxy: $HTTPS_PROXY
+    networks:
+      silicon_ctf_web:
+        ipv4_address: 172.168.24.4
+  secretserver:
+    build:
+      context: secretserver/
+      args:
+        https_proxy: $HTTPS_PROXY
+    environment:
+      SECRETSERVER_FLAG: $SECRETSERVER_FLAG
+    networks:
+      silicon_ctf_web:
+        ipv4_address: 172.168.24.5
+networks:
+  silicon_ctf_web:
+    ipam:
+      config:
+        - subnet: "172.168.24.0/24"
+  
