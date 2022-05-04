@@ -1,0 +1,29 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: arcade-ingress
+  namespace: arcade
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/whitelist-source-range: ""
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite ^([^.?]*[^/])$ $1/ redirect;
+spec:
+  tls:
+  - hosts:
+    - arcade.silicon-ctf.party
+    secretName: tls-secret
+  rules:
+  - host: arcade.silicon-ctf.party
+    http:
+      paths:
+      - path: /pacman/(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: pacman-service
+            port: 
+              number: 80

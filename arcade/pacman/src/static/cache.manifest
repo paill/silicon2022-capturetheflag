@@ -1,0 +1,57 @@
+CACHE MANIFEST
+# Pacman 1.0.5 2021-03-22 22:19:50
+
+CACHE:
+
+# HTML
+index.htm
+
+# CSS
+static/css/pacman-canvas.css
+
+# external resources
+static/css/style.css
+static/img/bg-pattern-black.png
+
+# fonts
+static/fonts/PressStart2Play.eot
+static/fonts/PressStart2Play.woff
+static/fonts/PressStart2Play.ttf
+
+# JavaScript
+static/js/pacman-canvas.js
+static/js/jquery-1.10.2.min.js
+static/js/jquery.hammer.min.js
+
+# data
+data/map.json
+
+# images
+static/img/blinky.svg
+static/img/clyde.svg
+static/img/inky.svg
+static/img/pinky.svg
+static/img/dazzled.svg
+static/img/dazzled2.svg
+static/img/dead.svg
+static/img/heart.png
+static/img/audio-icon.png
+static/img/audio-icon-mute.png
+static/img/platzh1rsch-logo.png
+static/img/instructions/instructions_chase.PNG
+static/img/instructions/instructions_scatter.PNG
+static/img/instructions/instructions_powerpill.PNG
+
+# MP3
+static/mp3/die.mp3
+static/mp3/eatghost.mp3
+static/mp3/powerpill.mp3
+static/mp3/theme.mp3
+static/mp3/waka.mp3
+
+# WAV
+static/wav/die.wav
+static/wav/eatghost.wav
+static/wav/powerpill.wav
+static/wav/theme.wav
+static/wav/waka.wav
