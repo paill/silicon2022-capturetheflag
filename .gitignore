@@ -4,3 +4,7 @@ venv/
 config.py
 .env
 .DS_Store
+rootthebox.db
+rootthebox.cfg
+*.bkp
+apache.log.tar.gz
