@@ -1,0 +1,7 @@
+colorama
+Flask
+Flask-SQLAlchemy
+Jinja2
+SQLAlchemy
+markupsafe
+waitress

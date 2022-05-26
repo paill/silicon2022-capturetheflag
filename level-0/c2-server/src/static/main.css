@@ -1,0 +1,266 @@
+/*body {
+	background: #000;  
+	color: #FFF;
+}*/
+
+a {
+  color: #CDEE69;
+}
+
+a:hover {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.title {
+    font-family: 'sans-serif';
+    color: #FFF;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #000;
+}
+
+.list-group-item {
+    color: #000;
+}
+
+.ascii {
+    color: #FFF;
+    font-size: 10px; 
+}
+body {
+  background-color: #272727;
+  padding: 10px;
+}
+
+.fakeButtons {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 6px;
+  left: 6px;
+  background-color: #ff3b47;
+  border-color: #9d252b;
+  display: inline-block;
+}
+
+.fakeMinimize {
+  left: 11px;
+  background-color: #ffc100;
+  border-color: #9d802c;
+}
+
+.fakeZoom {
+  left: 16px;
+  background-color: #00d742;
+  border-color: #049931;
+}
+
+.fakeMenu {
+  width: 950px;
+  box-sizing: border-box;
+  height: 25px;
+  background-color: #bbb;
+  margin: 0 auto;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.fakeScreen {
+  background-color: #151515;
+  box-sizing: border-box;
+  width: 950px;
+  margin: 0 auto;
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+p {
+  position: left;
+  left: 0%;
+  text-align: left;
+  font-size: 1.25em;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+span {
+  color: #000;
+  font-weight: bold;
+}
+
+.line1 {
+  color: #FFF;
+  -webkit-animation: type 1s 1s steps(20, end) forwards;
+  -moz-animation: type 1s 1s steps(20, end) forwards;
+  -o-animation: type 1s 1s steps(20, end) forwards;
+  animation: type 1s 1s steps(20, end) forwards;
+}
+
+.output1 {
+  color: #FFF;
+  -webkit-animation: type 1s 2s steps(20, end) forwards;
+  -moz-animation: type 1s 2s steps(20, end) forwards;
+  -o-animation: type 1s 2s steps(20, end) forwards;
+  animation: type 1s 2s steps(20, end) forwards;
+}
+
+.line2 {
+  color: #FFF;
+  -webkit-animation: type 1s 3s steps(20, end) forwards;
+  -moz-animation: type 1s 3s steps(20, end) forwards;
+  -o-animation: type 1s 3s steps(20, end) forwards;
+  animation: type 1s 3s steps(20, end) forwards;
+}
+
+.output2 {
+  color: #FFF;
+  -webkit-animation: type 1s 4s steps(20, end) forwards;
+  -moz-animation: type 1s 4s steps(20, end) forwards;
+  -o-animation: type 1s 4s steps(20, end) forwards;
+  animation: type 1s 4s steps(20, end) forwards;
+}
+
+.line3 {
+  color: #FFF;
+  -webkit-animation: type 1s 5s steps(20, end) forwards;
+  -moz-animation: type 1s 5s steps(20, end) forwards;
+  -o-animation: type 1s 5s steps(20, end) forwards;
+  animation: type 1s 5s steps(20, end) forwards;
+}
+
+.output3 {
+  color: #FFF;
+  -webkit-animation: type 1s 6s steps(20, end) forwards;
+  -moz-animation: type 1s 6s steps(20, end) forwards;
+  -o-animation: type 1s 6s steps(20, end) forwards;
+  animation: type 1s 6s steps(20, end) forwards;
+}
+
+.line4 {
+  color: #FFF;
+  -webkit-animation: type 1s 7s steps(20, end) forwards;
+  -moz-animation: type 1s 7s steps(20, end) forwards;
+  -o-animation: type 1s 7s steps(20, end) forwards;
+  animation: type 1s 7s steps(20, end) forwards;
+}
+
+.output4 {
+  color: #FFF;
+  -webkit-animation: type 1s 8s steps(20, end) forwards;
+  -moz-animation: type 1s 8s steps(20, end) forwards;
+  -o-animation: type 1s 8s steps(20, end) forwards;
+  animation: type 1s 8s steps(20, end) forwards;
+}
+
+.line5 {
+  color: #FFF;
+  -webkit-animation: type 1s 9s steps(20, end) forwards;
+  -moz-animation: type 1s 9s steps(20, end) forwards;
+  -o-animation: type 1s 9s steps(20, end) forwards;
+  animation: type 1s 9s steps(20, end) forwards;
+}
+
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes type {
+  to {
+    width: 17em;
+  }
+}
+
+@-moz-keyframes type {
+  to {
+    width: 17em;
+  }
+}
+
+@-o-keyframes type {
+  to {
+    width: 17em;
+  }
+}
+
+@keyframes type {
+  to {
+    width: 57em;
+  }
+}
