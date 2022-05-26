@@ -1,0 +1,33 @@
+[ req ]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+x509_extensions = usr_cert
+#x509_extensions = v3_ca
+prompt=no
+[usr_cert]
+basicConstraints = CA:FALSE
+nsCertType = client, server, email
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth, clientAuth
+nsComment=SILICON{C3Rt_exT5_Are_kEWL}
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer
+subjectAltName = @alt_names
+[req_distinguished_name]
+organizationName = Bowser Corp.
+commonName = bowsercorp.silicon-ctf.party
+localityName = Bowser's Castle
+[v3_req]
+basicConstraints = CA:FALSE
+subjectAltName = @alt_names
+extendedKeyUsage = serverAuth, clientAuth
+keyUsage=nonRepudiation, digitalSignature, keyEncipherment
+[v3_ca]
+basicConstraints = CA:FALSE
+extendedKeyUsage = serverAuth, clientAuth, emailProtection
+keyUsage=nonRepudiation, digitalSignature, keyEncipherment
+nsComment=SILICON{C3Rt_exT5_Are_kEWL}
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = bowsercorp.silicon-ctf.party
+DNS.2 = bowsercorp.silicon-ctf.party/kingkoopa
