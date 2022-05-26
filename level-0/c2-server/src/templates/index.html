@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bowser Corp</title>
+    <!-- BOOTSTRAP 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+</head>
+
+<body>
+  <main class="container p-4">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <pre class="ascii align-items-center" size="5px" style="color:red">
+                                                    ▄█          █         █▄       
+                                                  ▐██      ▄█  ███  █▄     ██▌     
+                                                 ▐██▀     █████████████    ▀██▌    
+                                                ▐██▌     ██████████████     ▐██▌   
+                                                ████    ████████████████    ████   
+                                               ▐█████  ██████████████████  █████▌  
+                                                ████████████████████████████████   
+                                                 ███████▀▀████████████▀▀███████    
+                                                  █████▌  ▄▄ ▀████▀ ▄▄  ▐█████     
+                                                ▄▄██████▄ ▀▀  ████  ▀▀ ▄██████▄▄   
+                                               ██████████████████████████████████  
+                                              ████████████████████████████████████ 
+                                             ▐██████  ███████▀▄██▄▀███████  ██████▌
+                                             ▐█████    ██████████████████    █████▌
+                                             ▐█████     ██████▀  ▀██████     █████▌
+                                              █████▄     ███        ███     ▄█████ 
+                                               ██████     █          █     ██████  
+                                                 █████                    █████    
+                                                  █████                  █████     
+                                                   █████                █████      
+                                                    ████   ▄        ▄   ████       
+                                                     ████ ██        ██ ████        
+                                                     ████████ ▄██▄ ████████        
+                                                    ████████████████████████       
+                                                    ████████████████████████       
+                                                     ▀█████████▀▀█████████▀        
+                                                       ▀███▀        ▀███▀ 
+
+▀█████████▄   ▄██████▄   ▄█     █▄     ▄████████    ▄████████    ▄████████       ▄████████  ▄██████▄     ▄████████    ▄███████▄ 
+  ███    ███ ███    ███ ███     ███   ███    ███   ███    ███   ███    ███      ███    ███ ███    ███   ███    ███   ███    ███ 
+  ███    ███ ███    ███ ███     ███   ███    █▀    ███    █▀    ███    ███      ███    █▀  ███    ███   ███    ███   ███    ███ 
+ ▄███▄▄▄██▀  ███    ███ ███     ███   ███         ▄███▄▄▄      ▄███▄▄▄▄██▀      ███        ███    ███  ▄███▄▄▄▄██▀   ███    ███ 
+▀▀███▀▀▀██▄  ███    ███ ███     ███ ▀███████████ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀        ███        ███    ███ ▀▀███▀▀▀▀▀   ▀█████████▀  
+  ███    ██▄ ███    ███ ███     ███          ███   ███    █▄  ▀███████████      ███    █▄  ███    ███ ▀███████████   ███        
+  ███    ███ ███    ███ ███ ▄█▄ ███    ▄█    ███   ███    ███   ███    ███      ███    ███ ███    ███   ███    ███   ███        
+▄█████████▀   ▀██████▀   ▀███▀███▀   ▄████████▀    ██████████   ███    ███      ████████▀   ▀██████▀    ███    ███  ▄████▀      
+            
+        </pre>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm offset-sm my-auto center">
+        <div class=fakeMenu>
+          <div class="fakeButtons fakeClose"></div>
+          <div class="fakeButtons fakeMinimize"></div>
+          <div class="fakeButtons fakeZoom"></div>
+        </div>
+
+        <div class="fakeScreen">
+          {% for command in commands %}
+              <p class="line{{loop.index}}">~$ {{command.cmd}}</p>
+              <p class="output{{loop.index}}">> {{command.result}}</p>
+          {% endfor %}
+          <p class="line5"><a href="/console">Open Console</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+<!-- 
+	N0vart1s Inc.
+-->
+</html>

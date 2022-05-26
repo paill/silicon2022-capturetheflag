@@ -1,0 +1,12 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: challenge-zero-deny-egress
+  namespace: challenge-zero
+spec:
+  podSelector:
+    matchLabels:
+      app: challenge-zero
+  policyTypes:
+  - Egress

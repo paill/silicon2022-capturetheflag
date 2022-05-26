@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bowser Corp - Console</title>
+    <!-- BOOTSTRAP 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.css" />
+</head>
+
+<body>
+    <template id="greetings">
+    ██████╗  ██████╗ ██╗    ██╗███████╗███████╗██████╗      ██████╗ ██████╗ ██████╗ ██████╗ 
+    ██╔══██╗██╔═══██╗██║    ██║██╔════╝██╔════╝██╔══██╗    ██╔════╝██╔═══██╗██╔══██╗██╔══██╗
+    ██████╔╝██║   ██║██║ █╗ ██║███████╗█████╗  ██████╔╝    ██║     ██║   ██║██████╔╝██████╔╝
+    ██╔══██╗██║   ██║██║███╗██║╚════██║██╔══╝  ██╔══██╗    ██║     ██║   ██║██╔══██╗██╔═══╝ 
+    ██████╔╝╚██████╔╝╚███╔███╔╝███████║███████╗██║  ██║    ╚██████╗╚██████╔╝██║  ██║██║     
+    ╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚══════╝╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                                     
+    
+    Commands:
+    help: print this help output
+    beacons: list beacons on hosts
+    exec &lt;beacon-id&gt; command: get current user on host
+    exec &lt;beacon-id&gt; ls [path]: list files on host
+    exec &lt;beacon-id&gt; download [file]: download file from host
+    exec &lt;beacon-id&gt; upload [file]: upload file to host
+    exec &lt;beacon-id&gt; echo [file]: output contents of file or variable on host
+    </template>
+    <main class="container p-4">
+        <div class="row">
+            <div class="col-sm offset-sm my-auto center">
+                <div class="col-sm offset-sm my-auto center">
+                    <div class=fakeMenu>
+                        <div class="fakeButtons fakeClose"></div>
+                        <div class="fakeButtons fakeMinimize"></div>
+                        <div class="fakeButtons fakeZoom"></div>
+                    </div>
+                <div id="terminal" class="terminal fakeScreen"></div>
+            </div>
+        </div>
+    </main>
+    <script src="static/js/console.js"></script>
+</body>
+</html>

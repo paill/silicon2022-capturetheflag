@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge-zero
+  namespace: challenge-zero
+spec:  
+  replicas: 1
+  selector:
+      matchLabels:
+        app: challenge-zero
+  template:
+    metadata:
+      labels:
+        app: challenge-zero
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: challenge-zero
+        image: registry/challenge-zero/c2-server:latest
+        ports:
+        - containerPort: 8080
+          name: http
+        imagePullPolicy: Always
