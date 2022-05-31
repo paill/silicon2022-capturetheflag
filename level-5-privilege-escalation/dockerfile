@@ -1,0 +1,40 @@
+FROM alpine:latest
+
+RUN apk add build-base bash python3 openssl
+
+ARG PASS="SILICON{s@iD-tH3-k377L3-t0-Th3-P07}"
+RUN adduser --disabled-password -s /bin/bash goomba
+RUN adduser -D -s /bin/bash larry && echo "larry:$PASS" | chpasswd
+RUN chmod 4755 /bin/su
+
+WORKDIR /tmp
+ADD ./entrypoint.sh entrypoint.sh
+RUN chmod 700 /tmp/entrypoint.sh
+ADD ./cron.conf cron.conf
+RUN crontab -u larry /tmp/cron.conf
+
+WORKDIR /home/larry
+RUN mkdir secret
+RUN echo "export SECRET='SILICON{3nV-v@r$-@r3-N0-pL@c3-F0r-$3cR37$}'" > .bashrc
+RUN chown larry .bashrc
+RUN chmod 600 .bashrc
+ADD ./passwords.txt secret/.password.txt
+RUN chown larry secret
+RUN chown larry secret/.password.txt
+RUN chmod 400 secret/.password.txt
+
+WORKDIR /home/goomba
+ADD ./goomba-fix.py ./goomba-fix.py
+
+RUN chown larry ./goomba-fix.py
+RUN chmod 500 goomba-fix.py
+
+RUN touch /home/goomba/.bash_history
+RUN chmod 666 /home/goomba/.bash_history
+
+
+# Run as an unprivileged user
+
+USER root
+
+ENTRYPOINT /tmp/entrypoint.sh
