@@ -46,3 +46,12 @@ localhost | SUCCESS => {
     "changed": false
 }
 ```
+
+## Solution 3
+
+Much like solution 2, with the vault password we should be able to locate and decode the contents of princess-toadstool-plans.txt:
+
+```bash
+cgoodspe@ubuntu:~/Documents/gogs/ansible-playbooks/secret$ ansible-vault view --vault-password-file ../../../silicon/.vault_pass princess-toadstool-plans.txt 
+{Th@nK-Y0u-M@r10!}
+```
