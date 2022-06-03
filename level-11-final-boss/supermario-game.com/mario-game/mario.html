@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>Full Screen Mario</title>
+
+    <link rel="canonical" href="https://supermarioplay.com">
+
+    <link href="mario.css?v=3.0" rel="stylesheet">
+    <link href="Fonts/stylesheet.css?v=3.0" rel="stylesheet">
+
+    <script src="assets/jquery.min.js"></script>
+
+    <script src="data.js?v=4.1.8"></script>
+    <script src="editor.js?v=3.0"></script>
+    <script src="gamepad.js?v=3.0"></script>
+    <script src="generator.js?v=3.0"></script>
+    <script src="library.js?v=3.0"></script>
+    <script src="load.js?v=3.0"></script>
+    <script src="maps.js?v=3.7"></script>
+    <script src="mario.js?v=3.0"></script>
+    <script src="sprites.js?v=3.0"></script>
+    <script src="things.js?v=3.0"></script>
+    <script src="toned.js?v=3.0"></script>
+    <script src="triggers.js?v=3.0"></script>
+    <script src="upkeep.js?v=3.0"></script>
+    <script src="utility.js?v=3.0"></script>
+
+    <script src="src/AudioPlayr/AudioPlayr.js?v=3.0"></script>
+    <script src="src/TimeHandlr/TimeHandlr.js?v=3.0"></script>
+    <script src="src/QuadsKeepr/QuadsKeepr.js?v=3.0"></script>
+    <script src="src/Crypt/aes.js"></script>
+
+    <style>
+        #paused {
+            background: rgba(0,0,0,.3);
+            font-size: 24px;
+            text-transform: uppercase;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.5em;
+        }
+        #mobile-controls .move {
+            width: 42px;
+            height: 42px;
+            position: absolute;
+            z-index: 98;
+        }
+        #mobile-controls .move span {
+            width: 42px;
+            height: 42px;
+            background-color: #fff;
+            background-size: 100%;
+            color: #000;
+            font-weight: bold;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        #mobile-controls #move-left,
+        #mobile-controls #move-right {
+            top: 440px;
+            height: 80px;
+        }
+        #mobile-controls #move-left {
+            left: 10px;
+        }
+        #mobile-controls #move-left span {
+            background-image: url(/mario-game/assets/img/arrow_left.png);
+        }
+        #mobile-controls #move-right {
+            left: 53px;
+            width: 57px;
+        }
+        #mobile-controls #move-right span {
+            background-image: url(/mario-game/assets/img/arrow_right.png);
+        }
+        #mobile-controls #move-top,
+        #mobile-controls #move-bottom {
+            right: 10px;
+            width: 62px;
+        }
+        #mobile-controls #move-top {
+            top: 429px;
+        }
+        #mobile-controls #move-top span {
+            background-image: url(/mario-game/assets/img/arrow_top.png);
+        }
+        #mobile-controls #move-bottom {
+            top: 477px;
+        }
+        #mobile-controls #move-bottom span {
+            background-image: url(/mario-game/assets/img/arrow_bottom.png);
+        }
+        #mobile-controls #move-fire {
+            display: none;
+            top: 454px;
+            right: 76px;
+        }
+        #mobile-controls #move-fire span {
+            background-image: url(/mario-game/assets/img/fire.png);
+        }
+        #explanation {
+            display: none;
+        }
+    </style>
+    <script>
+        var is_mobile = true;
+        function iOS() {
+            return [
+                    'iPad Simulator',
+                    'iPhone Simulator',
+                    'iPod Simulator',
+                    'iPad',
+                    'iPhone',
+                    'iPod'
+                ].includes(navigator.platform)
+                // iPad on iOS 13 detection
+                || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+        }
+        if (iOS()) {
+            var is_ios = true;
+        } else {
+            var is_ios = false;
+        }
+    </script>
+</head>
+<body onload="FullScreenMario()" style="position: relative;"></body>
+<div id="paused"><span>UNPAUSE</span></div>
+</html>
+
+

@@ -19,10 +19,6 @@ RUN mkdir ${APP_DIR} \
         && chown nginx:nginx /etc/tlsauth \
         && chmod 750 /etc/tlsauth
 
-# expose web server port
-# only http, for ssl use reverse proxy
-EXPOSE 80
-
 # copy config files into filesystem
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY app.ini /root/app.ini
