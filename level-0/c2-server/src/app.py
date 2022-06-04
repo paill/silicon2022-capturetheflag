@@ -12,9 +12,13 @@ import json
 import base64
 import subprocess
 
+import time
+import traceback
+
 app = Flask(__name__)
 
-logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger('waitress')
+logger.setLevel(logging.INFO)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database/c2.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -99,9 +103,8 @@ def command():
                     if command == "ls":
                         if arg is None:
                             arg = "."
-                        logging.info(arg)
                         command = f"{command} {arg}"
-                        logging.info(command)
+                        logger.info(command)
                         output = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
                     else:
                         output = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
@@ -121,5 +124,21 @@ def command():
 def flag():
     return render_template("secretpath.html")
 
+@app.after_request
+def after_request(response):
+    timestamp = time.strftime('[%Y-%b-%d %H:%M]')
+    logger.info('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+    return response
+
+@app.errorhandler(Exception)
+def exceptions(e):
+    tb = traceback.format_exc()
+    timestamp = time.strftime('[%Y-%b-%d %H:%M]')
+    logger.error('%s %s %s %s %s 5xx INTERNAL SERVER ERROR\n%s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, tb)
+    if isinstance(e, HTTPException):
+        return e
+    return "Bad request", 500
+
+
 if __name__ == "__main__":
-    app.run(debug=False, port=8080, host="0.0.0.0")
+    serve(app, host="0.0.0.0", port=8080)

@@ -15,7 +15,7 @@ CREATE TABLE beacon (
 
 INSERT INTO command (cmd, result)
 VALUES
-("exec 2 echo $FLAG", "SILICON{00p5_k00P45_13fT_tH13r_C2_rUNn1Ng}"),
+("exec 2 echo $FLAG", "SILICON{00p5_k00P45_13fT_tH31r_C2_rUNn1Ng}"),
 ("exec 2 whoami", "luigi"),
 ("exec 2 download princess-toadstool.tar.gz", "successfully downloaded princess-toadstool.tar.gz from target"),
 ("exec 2 upload .hellofriend.txt", "uploaded .hellofriend.txt to target");
