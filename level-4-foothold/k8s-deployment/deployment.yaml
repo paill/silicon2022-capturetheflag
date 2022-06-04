@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: level-four
+  namespace: level-four
+spec:  
+  replicas: 1
+  selector:
+      matchLabels:
+        app: level-four
+  template:
+    metadata:
+      labels:
+        app: level-four
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: level-four-smb
+        image: registry/level-4-smb:latest
+        ports:
+        - containerPort: 445
+          name: smb
+        imagePullPolicy: Always
