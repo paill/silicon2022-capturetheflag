@@ -6,7 +6,7 @@ RUN apk update && apk upgrade
 RUN apk add --no-cache git
 
 WORKDIR /tmp
-RUN git clone https://62bb382eb2d3f891732fbea9cd9e9e0d523b7eaa@gogs.silicon-ctf.party/shyguy/wannamammamia.git wannamammamia
+RUN git clone https://cfb049da77b8bcdf021ccb5cdafa6b26f09bcb1a@gogs.silicon-ctf.party/shyguy/wannamammamia.git wannamammamia
 RUN mv wannamammamia/.git/config .
 RUN rm -r wannamammamia/*
 RUN rm -r wannamammamia/.git
