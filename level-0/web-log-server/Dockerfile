@@ -19,6 +19,8 @@ RUN chown luigi: entrypoint.sh
 RUN chown luigi: intro.txt
 RUN chmod 500 entrypoint.sh
 
+RUN echo 'echo "bad user. did you read our rules? "' > /usr/bin/gcc
+
 USER luigi
 
 CMD ["./entrypoint.sh"]
