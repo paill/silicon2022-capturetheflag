@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: level11-final-boss
+  namespace: level11
+spec:  
+  replicas: 1
+  selector:
+      matchLabels:
+        app: level11
+  template:
+    metadata:
+      labels:
+        app: level11
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: gogs
+        image: registry/level-11
+        ports:
+        - containerPort: 8080
+          name: http
+        imagePullPolicy: Always

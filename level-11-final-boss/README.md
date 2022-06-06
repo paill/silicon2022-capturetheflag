@@ -9,3 +9,7 @@ The first is to simply defeat bowser. There are plenty of level 8-4 walkthroughs
 The second way is to dissect the javascript. In the maps.js file is a function called "z()" which returns the flag. It's been encrypted the key is found there as well. If this is decrypted with AES then the flag is found.
 
 ![Flag 1](./images/flag-1.png "Flag 1")
+
+![Flag 1 - AltA](./images/flag-1-alternative.png "Flag 1 - Alternative A")
+
+![Flag 1 - AltB](./images/flag-1-alternative-2.png "Flag 1 - Alternative B")
