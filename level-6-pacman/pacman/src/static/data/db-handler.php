@@ -1,3 +1,4 @@
+<!-- SILICON{G1tHUb_15_4_gr34t_S0uRC3_0F_1Nf0} -->
 <?php header('Content-Type: application/json');
 
 /* IMPORTANT:
