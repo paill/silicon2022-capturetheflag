@@ -1,0 +1,5 @@
+1. SILICON{Av0id7ng_$and8ox3s_F0r_The_Win}
+
+2. SILICON{D0ck3R_1m4G35_4r3_JU5t_T4r_f1L35??}
+
+3. SILICON{B0w53r_m4k35_M3_W4nn4_cRy}
