@@ -1,23 +1,30 @@
 import requests
-import os
+
+base_url = "https://arcade.silicon-ctf.party/pacman"
+path = ""
+back_at_start = False
 
 session = requests.Session()
 
-flag = ""
-
 while True:
 
-    r = session.get('https://arcade.silicon-ctf.party/pacman/map')
+    r = session.get(f"{base_url}/map")
     map_data = r.json()
 
-    for row in map_data['posY']:
-        for column in row['posX']:
-            if column['type'] == 'xwall':
-                character_code = f'{column["col"]}{row["row"]}'
+    for row in map_data["posY"]:
+        for column in row["posX"]:
+            if column["type"] == "xwall":
+                print
+                character_code = f"{column['col']}{row['row']}"
                 character = chr(int(character_code))
-                flag += character
+                
+    if character == "/":
+        if back_at_start:
+            break
+        else:
+            back_at_start = True
     
-    if character == "}":
-        break
+    path += character
 
-print(flag)
+r = session.get(f"{base_url}{path}")
+print(r.json())

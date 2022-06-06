@@ -20,7 +20,9 @@ spec:
         image: registry/arcade/pacman:latest
         env:
         - name: FLAG
-          value: "SILICON{W4k4_w4K4_g0Tt4_34t_3M_4L1}"
+          value: "SILICON{bl1NKy_p1Nky_1nkY_4nD_cLyd3}"
+        - name: SECRET_PATH
+          value: "W4k4_w4K4_g0Tt4_34t_3M_4L1"
         - name: HOSTING_PATH
           value: "."
         ports:
