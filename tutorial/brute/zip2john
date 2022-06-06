@@ -1,0 +1,2 @@
+#!/bin/bash
+echo 'flag.zip:$pkzip2$1*2*2*0*2f*23*fdd8f9b7*0*42*0*2f*fdd8*01fc*9ef89f0458019b3cada61f4e3f1cdb03e1deb666699fab59f9cd59a748a80b3b5ffd3e5fc20b63848c3733af1ee453*$/pkzip2$:::::flag.zip'
