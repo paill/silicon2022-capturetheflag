@@ -1,0 +1,41 @@
+#!/bin/sh
+su -c 'python3 /app/server0.py &' goomba
+su -c 'python3 /app/server1.py &' goomba
+su -c 'python3 /app/server2.py &' goomba
+su -c 'python3 /app/server3.py &' goomba
+su -c 'python3 /app/server4.py &' goomba
+su -c 'python3 /app/server5.py &' goomba
+su -c 'python3 /app/server6.py &' goomba
+su -c 'python3 /app/server7.py &' goomba
+su -c 'python3 /app/server8.py &' goomba
+su -c 'python3 /app/server9.py &' goomba
+su -c 'python3 /app/server10.py &' goomba
+su -c 'python3 /app/server11.py &' goomba
+su -c 'python3 /app/server12.py &' goomba
+su -c 'python3 /app/server13.py &' goomba
+su -c 'python3 /app/server14.py &' goomba
+su -c 'python3 /app/server15.py &' goomba
+su -c 'python3 /app/server16.py &' goomba
+su -c 'python3 /app/server17.py &' goomba
+su -c 'python3 /app/server18.py &' goomba
+su -c 'python3 /app/server19.py &' goomba
+su -c 'python3 /app/server20.py &' goomba
+su -c 'python3 /app/server21.py &' goomba
+su -c 'python3 /app/server22.py &' goomba
+su -c 'python3 /app/server23.py &' goomba
+su -c 'python3 /app/server24.py &' goomba
+su -c 'python3 /app/server25.py &' goomba
+su -c 'python3 /app/server26.py &' goomba
+su -c 'python3 /app/server27.py &' goomba
+su -c 'python3 /app/server28.py &' goomba
+su -c 'python3 /app/server29.py &' goomba
+su -c 'python3 /app/server30.py &' goomba
+su -c 'python3 /app/server31.py &' goomba
+su -c 'python3 /app/server32.py &' goomba
+su -c 'python3 /app/server33.py &' goomba
+su -c 'python3 /app/server34.py &' goomba
+su -c 'python3 /app/server35.py &' goomba
+su -c 'python3 /app/server36.py &' goomba
+su -c 'python3 /app/server37.py &' goomba
+cd /home/mario
+su - mario
