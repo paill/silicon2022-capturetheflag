@@ -1,0 +1,7 @@
+---
+
+- name: Deploy manufacturing software
+  hosts: all
+  become: true
+  roles:
+    - pre-deployment

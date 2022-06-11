@@ -1,0 +1,16 @@
+---
+
+- name: Update the base OS
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: full
+
+- name: Install base software for princess-toadstool production
+  ansible.builtin.apt:
+    name: peach-pkg
+  when: ansible_facts['manu-type']|lower == 'princess-toadstool'
+
+- name: Install base software for bowser corp pipe liner
+  ansible.builtin.apt:
+    name: pipe-liner-pkg
+  when: ansible_facts['manu-type']|lower == 'bcorp-pipe-liner'
