@@ -17,7 +17,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: gogs
-        image: registry/gogs/gogs:latest
+        image: gogs/gogs:latest
         env:
         - name: SOCAT_LINK
           value: "false"
