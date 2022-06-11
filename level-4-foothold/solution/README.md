@@ -5,6 +5,7 @@ These are a work in progress, screenshots will be added over the next 24 hours a
 
 ### Flag 1 - Plain Sight
 Very easy. The flag is located in the `.s3` of the S3 bucket server.. The only challenge is downloading files from an S3 bucket.
+[Bucket](https://bowser-corp-company-bucket.s3.amazonaws.com/)
 
 ### Flags 2-4, maybe 5 and definitly 6. 
 By Googling the file extension and/or reading `README.txt` in S3 bucket, users will realize that the
