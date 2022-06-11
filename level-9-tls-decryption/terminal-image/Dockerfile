@@ -1,5 +1,5 @@
 FROM alpine
-MAINTAINER local@mail.com - Nginx&uwsgi image by Christian Gatzlaff <cgatzlaff@gmail.com>
+MAINTAINER  - Nginx&uwsgi image by Christian Gatzlaff <cgatzlaff@gmail.com>
 
 # basic flask environment
 RUN apk add --no-cache bash curl git nginx uwsgi uwsgi-python3 cmd:pip3 openssl \

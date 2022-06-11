@@ -17,7 +17,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: gogs
-        image: registry/level-11
+        image: level-11
         ports:
         - containerPort: 8080
           name: http

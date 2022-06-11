@@ -17,7 +17,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: pacman
-        image: registry/arcade/pacman:latest
+        image: arcade/pacman:latest
         env:
         - name: FLAG
           value: "SILICON{bl1NKy_p1Nky_1nkY_4nD_cLyd3}"

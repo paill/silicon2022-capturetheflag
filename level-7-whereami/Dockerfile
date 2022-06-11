@@ -48,7 +48,7 @@ COPY src/payload/wannamammamia.tar /root/wannamammamia.tar
 RUN chown root:root /root/wannamammamia.tar
 RUN chmod 0400 /root/wannamammamia.tar
 
-RUN echo 'echo "bad user. did you read our rules? "' > /usr/bin/gcc
+RUN echo 'echo "bad user. did you read our rules?"' > /usr/bin/gcc
 # RUN echo '127.0.0.1 wannamammamia.bowsercorp.local ' > /tmp/hosts
 
 ENTRYPOINT ["/root/entrypoint.sh"]

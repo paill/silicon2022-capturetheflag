@@ -17,7 +17,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: challenge-zero
-        image: registry/challenge-zero/c2-server:latest
+        image: challenge-zero/c2-server:latest
         ports:
         - containerPort: 8080
           name: http
