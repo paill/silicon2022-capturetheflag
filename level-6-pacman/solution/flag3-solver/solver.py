@@ -14,7 +14,7 @@ while True:
     for row in map_data["posY"]:
         for column in row["posX"]:
             if column["type"] == "xwall":
-                print
+                print(f"posY:{column['col']}, posX:{row['row']}")
                 character_code = f"{column['col']}{row['row']}"
                 character = chr(int(character_code))
                 
@@ -26,5 +26,6 @@ while True:
     
     path += character
 
+print(path)
 r = session.get(f"{base_url}{path}")
 print(r.json())
