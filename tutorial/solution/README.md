@@ -1,3 +1,7 @@
+# Rules
+If you go read our rules page and view the source (or highlight all text with CTRL+A), there is a flag hidden at the bottom of the page. 
+`SILICON{n1c3_j0b_r34D1Ng_tH3_Ru135}`
+
 # Assemble
 code.asm contains Assembly instructions. You need to go step by step through the Assembly code to calculate the value of each register and ultimately find the value of `eax`.
 
